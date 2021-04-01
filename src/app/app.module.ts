@@ -7,7 +7,6 @@ import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { SidebarComponent } from './componentes/sidebar/sidebar.component';
-
 import { SidebarModule } from 'ng-sidebar';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
@@ -18,6 +17,7 @@ import { AngularFireModule} from '@angular/fire';
 
 import { AngularFireAuthModule} from '@angular/fire/auth'; 
 import { environment } from 'src/environments/environment';
+
 
 
 

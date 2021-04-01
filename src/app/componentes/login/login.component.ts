@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
+import { LogUserService } from 'src/app/services/log-user.service';
+import { UserLogI } from '../interfaces/user-log-i/userLog';
 import { AuthService } from './../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [AuthService],
+  providers: [AuthService, LogUserService],
 })
 export class LoginComponent implements OnInit {
 
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor(private as:AuthService, private router:Router) { }
+  constructor(private as:AuthService, private router:Router,private lg:LogUserService) { }
 
   ngOnInit(): void {
   }
@@ -26,8 +28,10 @@ export class LoginComponent implements OnInit {
     const {email,password} = this.loginForm.value;
     try {
       const user = await this.as.loguear(email,password);
+      const objUserForLog: UserLogI = { email, loggedAt: new Date().getTime() }
       if(user)
       {
+        this.lg.saveUserLog(objUserForLog);
         this.router.navigate(['/home']);
       }
     } catch (error) {
