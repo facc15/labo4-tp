@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
-
+ 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [AuthService],
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css'],
+  providers:[AuthService],
 })
-export class LoginComponent implements OnInit {
+export class RegistroComponent implements OnInit {
 
-  loginForm= new FormGroup({
+  registerForm= new FormGroup({
     email:new FormControl(''),
     password: new FormControl('')
   });
@@ -21,21 +21,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async Loguear()
+  async Registrar()
   {
-    const {email,password} = this.loginForm.value;
+    const {email, password}=this.registerForm.value;
     try {
-      const user = await this.as.loguear(email,password);
+      const user = await this.as.registrar(email,password);
       if(user)
       {
         this.router.navigate(['/home']);
       }
+      
     } catch (error) {
-      console.log(error);
       
     }
     
-
   }
 
 }

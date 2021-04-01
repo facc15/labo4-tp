@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tp-juegos": {
+      "hosting": {
+        "tp": [
+          "tp-juegos"
+        ]
+      }
+    }
+  }
+}
