@@ -35,7 +35,7 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule,
     AngularFireAuthModule,
     SidebarModule.forRoot()
   ],
