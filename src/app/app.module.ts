@@ -17,6 +17,7 @@ import { AngularFireModule} from '@angular/fire';
 
 import { AngularFireAuthModule} from '@angular/fire/auth'; 
 import { environment } from 'src/environments/environment';
+import { JuegosComponent } from './componentes/juegos/juegos.component';
 
 
 
@@ -30,7 +31,8 @@ import { environment } from 'src/environments/environment';
     QuienSoyComponent,
     SidebarComponent,
     RegistroComponent,
-    NavbarComponent
+    NavbarComponent,
+    JuegosComponent
   ],
   imports: [
     BrowserModule,

@@ -28,4 +28,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/registro']);
   }
   
+  IrAJuegos()
+  {
+    this.router.navigate(['/juegos']);
+  }
 }
