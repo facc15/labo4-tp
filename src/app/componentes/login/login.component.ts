@@ -28,10 +28,13 @@ export class LoginComponent implements OnInit {
     const {email,password} = this.loginForm.value;
     try {
       const user = await this.as.loguear(email,password);
-      const objUserForLog: UserLogI = { email, loggedAt: new Date().getTime() }
+   
+      let fecha=new Date().toLocaleDateString() + " - " +new Date().toLocaleTimeString();
+      const objUserForLog: UserLogI = { email, loggedAt: fecha }
       if(user)
       {
         this.lg.saveUserLog(objUserForLog);
+        console.log(objUserForLog.loggedAt);
         this.router.navigate(['/home']);
       }
     } catch (error) {

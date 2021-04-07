@@ -30,7 +30,9 @@ export class AuthService {
 
     return resultado;
 
-    }catch(error){console.log(error);}
+    }catch(error){
+      return "error";
+    }
     return "";
   }
 

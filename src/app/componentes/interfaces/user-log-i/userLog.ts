@@ -1,4 +1,4 @@
 export interface UserLogI {
   email: string,
-  loggedAt: number
+  loggedAt: string
 }

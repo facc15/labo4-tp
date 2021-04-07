@@ -6,17 +6,33 @@
         <form [formGroup]="registerForm" (ngSubmit)="Registrar()">
             <div class="form-group">
                 <label class="text-white h4 mb-1" for="email">E-mail: </label>
-                <input type="email" class="form-control mb-3" formControlName="email">
+                <input type="email" class="form-control mb-3" formControlName="email" [ngClass]="{'is-invalid': submitted && email.errors}">
+                <div class="alert-danger" *ngIf="submitted && email.invalid">
+                    <div class="container-error-message">
+                        {{GetEmailErrorMessage()}}
+                    </div>   
+                </div>
+                
             </div>
-              
+<!--
+ngIf="email.invalid && (email.dirty || email.touched)"
+{{GetEmailErrorMessage()}}
+-->
                 <div class="form-group">
                 <label class="text-white h4" for="email">Contraseña: </label>
-                <input type="password" class="form-control mb-4" formControlName="password">
+                <input type="password" class="form-control mb-3" minlength="1" formControlName="password" [ngClass]="{'is-invalid': submitted && password.errors}">
+                <div class="alert-danger" *ngIf="submitted && password.invalid">
+                    <div class="container-error-message" >
+                        {{GetPasswordErrorMessage()}}
+                    </div>
+                   
+
+                </div>
             </div>
-            <button type="submit" class="btn btn-lg btn-outline-light mb-3">Registrarse</button>
+            <button type="submit" class="btn btn-lg btn-outline-light mt-3">Registrarse</button>
         </form>
 
-        <div class="form-group h6">
+        <div class="form-group h6 mt-2">
             <p>Ya tienes una cuenta?
                 <a class="log " [routerLink]="['/login']">Loguearte</a>
             </p>
