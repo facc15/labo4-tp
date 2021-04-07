@@ -6,3 +6,23 @@
 .log:hover {
     color: black;
 }
+
+.alert-danger{
+
+    color: #721c24;
+    font-weight: 500;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    margin-bottom: 2px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    outline: 2px;
+    border-radius: 5px;
+
+    
+}
+
+.container-error-message{
+    padding : 3px;
+
+}

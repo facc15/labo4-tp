@@ -18,7 +18,7 @@
 ngIf="email.invalid && (email.dirty || email.touched)"
 {{GetEmailErrorMessage()}}
 -->
-                <div class="form-group">
+            <div class="form-group">
                 <label class="text-white h4" for="email">Contraseña: </label>
                 <input type="password" class="form-control mb-3" minlength="1" formControlName="password" [ngClass]="{'is-invalid': submitted && password.errors}">
                 <div class="alert-danger" *ngIf="submitted && password.invalid">

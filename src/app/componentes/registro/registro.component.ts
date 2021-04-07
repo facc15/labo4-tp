@@ -55,12 +55,7 @@ export class RegistroComponent implements OnInit {
           this.submitted=false;
           this.router.navigate(['/home']);
 
-        }else
-        {
-          console.log("no pinta");
         }
-        
-        
       }else
       {
           this.submitted=false;
