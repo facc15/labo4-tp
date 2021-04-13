@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-
+  
  
 
   public email =new FormControl('',[Validators.required,Validators.pattern(this.emailPattern)]);
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async Loguear()
+  /*async*/ Loguear()//: Promise<void>
   {
     this.submitted=true;
     const {email,password} = this.loginForm.value;
@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
       if(user)
       {
         this.lg.saveUserLog(objUserForLog);
+        //await this.lg.onSaveContact(this.loginForm.value);
         console.log(objUserForLog.loggedAt);
         this.submitted=false;
         this.router.navigate(['/home']);

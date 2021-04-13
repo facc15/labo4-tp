@@ -8,6 +8,20 @@
     border-radius: 5em;
 
 }
+.home
+{
+    font-weight: 900;
+    display:block;
+    margin-left: 6%;
+    position: absolute;
+    color:black;
+    font-size:18px; 
+    border-width :2px;
+    border-radius: 5em;
+    cursor:pointer;
+
+
+}
 .loge{
     font-weight: 700;
     margin-left: 1630%;

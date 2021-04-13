@@ -18,6 +18,7 @@ import { AngularFireModule} from '@angular/fire';
 import { AngularFireAuthModule} from '@angular/fire/auth'; 
 import { environment } from 'src/environments/environment';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 
@@ -42,7 +43,7 @@ import { JuegosComponent } from './componentes/juegos/juegos.component';
     AngularFireAuthModule,
     SidebarModule.forRoot()
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

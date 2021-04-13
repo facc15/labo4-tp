@@ -11,7 +11,8 @@ import { UserLogI } from '../componentes/interfaces/user-log-i/userLog';
 export class LogUserService {
 
   private usersLogC: AngularFirestoreCollection<UserLogI>;
-  private nameCollectionDB= 'usersLog';
+  private nameCollectionDB= 'users';
+  //obs: Observable<any>;
 
   constructor(private afs: AngularFirestore) {
     this.usersLogC= afs.collection<UserLogI>(this.nameCollectionDB);
@@ -30,6 +31,21 @@ export class LogUserService {
           })  
         )
       )
+  }
+
+  async onSaveContact(contactForm:UserLogI): Promise<void>
+  {
+    return new Promise(async(resolve,reject)=>{
+      try {
+        const id=this.afs.createId(); 
+        const data={id, ...contactForm};
+        const result= this.usersLogC.doc(id).set(data);
+        resolve(result);
+        
+      } catch (error) {
+        reject(error.message);
+      }
+    });
   }
 
   public saveUserLog(user: UserLogI) { 

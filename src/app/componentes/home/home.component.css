@@ -7,10 +7,12 @@
 .boton{
     font-weight: 500;
     color: brown;
-    border-radius: 50%;
+    border-radius: 20%;
 
-    padding-left: 4%;
-    padding-right:4%;
+    padding-left: 6%;
+    padding-right:6%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     
 
 }
