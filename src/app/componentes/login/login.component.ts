@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /*async*/ Loguear()//: Promise<void>
+  async Loguear()//: Promise<void>
   {
     this.submitted=true;
     const {email,password} = this.loginForm.value;
