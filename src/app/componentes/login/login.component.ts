@@ -8,6 +8,7 @@ import { LogUserService } from 'src/app/services/log-user.service';
 import { UserLogI } from '../interfaces/user-log-i/userLog';
 import { AuthService } from './../../services/auth.service';
 import * as firebase from 'firebase/app';
+import { StylesCompileDependency } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,6 @@ export class LoginComponent implements OnInit {
 
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  
-  public log=false;
 
   public user:any;
   public user$: Observable<any> =this.as.afAuth.user;
@@ -55,23 +54,30 @@ export class LoginComponent implements OnInit {
         //await this.lg.onSaveContact(this.loginForm.value);
         console.log(objUserForLog.loggedAt);
         this.submitted=false;
-        this.log=true;
-        this.router.navigate(['/home',this.log]);
+        this.router.navigate(['/home']);
       }
     } catch (error) {
       console.log(error);
       
     }
     
+  }
+
+  sleep()
+  {
 
   }
 
-  loginWithGoogle(provider:string)
+  async loginWithGoogle(provider:string)
   {
     console.log(provider);
 
-    this.as.loginWithGoogle(provider);
-    this.router.navigate(['/home']);
+    const user=await this.as.loginWithGoogle(provider);
+    if(user)
+    {
+      this.router.navigate(['/home']);
+    }
+    
   }
 
   
