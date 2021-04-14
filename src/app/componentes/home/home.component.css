@@ -16,3 +16,19 @@
     
 
 }
+.chat
+{
+    width: 40%; 
+    overflow:scroll; 
+    height:60%; 
+    color: black; 
+    background-color: white; 
+    border-color: black; 
+    border-radius: 2%;  
+    border-start-start-radius: 10%; 
+    border-style:solid;
+    position: absolute;
+    margin-right: 60%;
+    margin-bottom: 20%;
+
+}

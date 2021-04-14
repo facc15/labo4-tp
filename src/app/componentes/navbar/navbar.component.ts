@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './../../services/auth.service';
@@ -10,14 +10,14 @@ import { AuthService } from './../../services/auth.service';
   providers: [AuthService]
 })
 export class NavbarComponent implements OnInit {
-  public estaLog=false; 
+  @Input() public estaLog=false; 
   public user:any;
   public user$: Observable<any> =this.as.afAuth.user;
 
   constructor(private as:AuthService,private router:Router) { }
 
   async ngOnInit() {
-    this.user = await this.as.getUsuarioLogueado();
+    this.user = await this.as.getUserLog();
 
     //me devuelve objeto user
     

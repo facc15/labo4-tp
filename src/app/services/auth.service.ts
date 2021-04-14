@@ -1,15 +1,34 @@
-import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 //import { auth } from 'firebase/app';
 import {AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 //import { User } from 'firebase';
 import { first } from 'rxjs/operators';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
 
-  //public user: User;
+ 
+  public user :any={};
 
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(private afs:AngularFirestore, public afAuth: AngularFireAuth) { 
+
+    this.afAuth.authState.subscribe(u=>{
+
+      console.log("estado:" ,u);
+
+      if(!u)
+      {
+        return;
+      }
+
+      this.user.name=u.displayName;
+      this.user.id=u.uid;
+
+    })
+
+  }
 
   async loguear(email:string, password:string){
     
@@ -20,6 +39,12 @@ export class AuthService {
       console.log(error);
     }
     return "";
+  }
+
+  
+  loginWithGoogle(provider:string)
+  {
+    this.afAuth.signInWithPopup(new firebase.default.auth.GoogleAuthProvider());
   }
 
 
@@ -38,6 +63,7 @@ export class AuthService {
 
   async desloguear(){
     try{
+      this.user={};
       await this.afAuth.signOut();
     }catch(error){
 console.log(error);  
@@ -45,7 +71,7 @@ console.log(error);
     
   }
 
-  getUsuarioLogueado(){
+  getUserLog(){
     return this.afAuth.authState.pipe(first()).toPromise();
   }
 }

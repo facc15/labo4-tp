@@ -13,10 +13,8 @@ import { AuthService } from './../../services/auth.service';
 })
 export class RegistroComponent implements OnInit {
 
+  public log=false;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-
- 
 
   public email =new FormControl('',[Validators.required,Validators.pattern(this.emailPattern)]);
 
@@ -53,7 +51,8 @@ export class RegistroComponent implements OnInit {
           console.log(objUserForLog.loggedAt);
          
           this.submitted=false;
-          this.router.navigate(['/home']);
+          this.log=true;
+          this.router.navigate(['/home',this.log]);
 
         }
       }else

@@ -4,9 +4,15 @@
 <br><br><br>
 <div class="container-lg col-8">
     <br><br>
-    <button type="button" (click)="IrAQuienSoy()" class="btn btn-outline-light btn-lg btn-block">Quien soy?</button>
+        <button type="button" (click)="IrAQuienSoy()" class="btn btn-outline-light btn-lg btn-block">Quien soy?</button>
     <br><br>
-    <button type="button" (click)="IrAJuegos()" class="btn btn-outline-light btn-lg btn-block">Lista de Juegos</button>
-
-
+        <button type="button" (click)="IrAJuegos()" class="btn btn-outline-light btn-lg btn-block">Lista de Juegos</button>
+    <br><br>
+        <button type="button" (click)="openChat()" *ngIf="user$ | async as user;" class="btn btn-outline-light btn-lg btn-block" >Sala de chat</button>    
 </div> 
+
+
+<div class="chat container mt-2 " id="idChat" *ngIf="actionChat">
+    <app-chat></app-chat>
+</div>
+

@@ -25,7 +25,7 @@ export class LogUserService {
         map(actions =>
           actions.map(a => {
             const data = a.payload.doc.data() as UserLogI;
-            const id = a.payload.doc.id;
+            const id = a.payload.doc.data();
 
             return { id, ...data };
           })  

@@ -1,9 +1,13 @@
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl , Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LogUserService } from 'src/app/services/log-user.service';
 import { UserLogI } from '../interfaces/user-log-i/userLog';
 import { AuthService } from './../../services/auth.service';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +20,10 @@ export class LoginComponent implements OnInit {
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   
- 
+  public log=false;
+
+  public user:any;
+  public user$: Observable<any> =this.as.afAuth.user;
 
   public email =new FormControl('',[Validators.required,Validators.pattern(this.emailPattern)]);
 
@@ -29,6 +36,8 @@ export class LoginComponent implements OnInit {
   constructor(private as:AuthService, private router:Router,private lg:LogUserService) { }
 
   ngOnInit(): void {
+    this.user = this.as.getUserLog();
+    
   }
 
   async Loguear()//: Promise<void>
@@ -46,7 +55,8 @@ export class LoginComponent implements OnInit {
         //await this.lg.onSaveContact(this.loginForm.value);
         console.log(objUserForLog.loggedAt);
         this.submitted=false;
-        this.router.navigate(['/home']);
+        this.log=true;
+        this.router.navigate(['/home',this.log]);
       }
     } catch (error) {
       console.log(error);
@@ -54,6 +64,15 @@ export class LoginComponent implements OnInit {
     }
     
 
+  }
+
+  loginWithGoogle(provider:string)
+  {
+    console.log(provider);
+
+    this.as.loginWithGoogle(provider);
+    this.log=true;
+    this.router.navigate(['/home',this.log]);
   }
 
   

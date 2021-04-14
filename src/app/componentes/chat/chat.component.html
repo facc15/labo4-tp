@@ -1,0 +1,121 @@
+
+
+   <div class="chat-window"> 
+   
+       <h1 style="text-align: center;">CHAT</h1>
+      <div class="msg" id="idMessage" >
+
+         <div class="h5"  *ngFor="let chat of cs.chats">
+            
+            
+            <div *ngIf="cs.user.id==chat.id; else notUser">
+                
+
+                <div style="text-align: right;">
+
+                <span class="badge bg-secondary text-wrap">
+                        {{chat.time}}
+                </span>
+                -
+                <span class="badge bg-success text-wrap">
+                  
+                   <span *ngIf="chat.name; else notName">
+                    {{ chat.name}} :  
+                   </span>
+                   <ng-template #notName>
+                        {{chat.email}} : 
+                   </ng-template>    
+                   
+                   
+                </span>
+
+                
+                <p> {{chat.message}} </p>
+
+                </div>
+
+            </div>
+
+            <ng-template #notUser>
+
+                <div>
+                    <span class="badge bg-secondary text-wrap">
+                        {{chat.time}}
+                    </span>
+                     -
+                    <span class="badge bg-danger text-wrap">
+                      
+                       <span *ngIf="chat.name; else notName">
+                        {{ chat.name}} :
+                       </span>
+                       <ng-template #notName>
+                            {{chat.email}} :
+                       </ng-template>                   
+                    </span>
+                    <p> {{chat.message}} </p>
+    
+                    </div>
+
+
+            </ng-template>
+
+
+            
+         </div>
+
+        
+
+
+       <!--
+               
+      
+        
+          <div class="h5">
+
+            <span class="badge bg-secondary">Rocio : </span>
+         </div>
+            <p>sii mi amor obvio</p>
+
+        -->
+
+     </div>
+   </div>
+
+   <input type="text" 
+        class="buttomChat form-control" 
+        name="message" 
+        [(ngModel)]="message" 
+        (keyup.enter)="sendMessage()"
+        placeholder="Enviar mensaje"
+        >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--
+
+<ul>
+asdasdasdasd
+    <li class="text" *ngFor="let item of items | async">
+        askdlasdklakdlskdlasdasdasdasdasdasddsa
+        {{item.name}}
+
+    </li>
+
+
+</ul>
+-->

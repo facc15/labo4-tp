@@ -1,0 +1,11 @@
+.msg{
+    
+    box-sizing: border-box;
+}
+
+.buttomChat
+{
+    bottom: 0%;
+    top:10%;
+    align-self: center;
+}

@@ -1,17 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import {Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from './../../services/auth.service';
+import { Component, OnInit, Input } from '@angular/core';
+import {Router , ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],  
+  providers: [AuthService]
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  public user:any;
+  public user$: Observable<any> =this.as.afAuth.user;
+  public actionChat:Boolean=false;
 
-  ngOnInit(): void {
-  }
+  constructor(private router: Router, private route : ActivatedRoute, private as: AuthService) { }
+
+  ngOnInit() {
+    this.user = this.as.getUserLog(); 
+    }
 
   IrALogin()
   {
@@ -19,8 +27,8 @@ export class HomeComponent implements OnInit {
   }
 
   IrAQuienSoy()
-  {
-    this.router.navigate(['/quien-soy']);
+  {   
+      this.router.navigate(['/quien-soy']);  
   }
 
   IrARegistro()
@@ -31,5 +39,13 @@ export class HomeComponent implements OnInit {
   IrAJuegos()
   {
     this.router.navigate(['/juegos']);
+  }
+
+  openChat()
+  {
+    if(!this.actionChat)
+    this.actionChat=true;
+    else
+    this.actionChat=false;
   }
 }

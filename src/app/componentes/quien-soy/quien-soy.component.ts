@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{Router} from '@angular/router';
+import{ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-quien-soy',
@@ -8,11 +8,15 @@ import{Router} from '@angular/router';
 })
 export class QuienSoyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
+  comeHome()
+  {
+      this.router.navigate(['/home']);  
+  }
 
 
 }
