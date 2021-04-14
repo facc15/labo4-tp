@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
   {
     console.log(provider);
 
-    const user=await this.as.loginWithGoogle(provider);
+    const user=await this.as.loginWithGoogle();
     if(user)
     {
       this.router.navigate(['/home']);

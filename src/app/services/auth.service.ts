@@ -42,10 +42,12 @@ export class AuthService {
   }
 
   
-  async loginWithGoogle(provider:string)
+  async loginWithGoogle()
   {
     try {
-      const result= this.afAuth.signInWithPopup(new firebase.default.auth.GoogleAuthProvider());
+      let provider=new firebase.default.auth.GoogleAuthProvider()
+
+      const result= this.afAuth.signInWithPopup(provider);
       return result;
     } catch (error) {
       console.log(error);
