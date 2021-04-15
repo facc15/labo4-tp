@@ -1,0 +1,41 @@
+.container
+{
+    text-align: center;
+}
+.options
+{
+    margin: auto;
+    display:inline-block;
+    width: 100px;
+    height: 100px;
+}
+.choice
+{
+    top:30px;
+    position:relative;
+    border-width: 10px;
+    right:170px;
+ 
+}
+
+.resultImage
+{
+    position:absolute;
+   bottom: 358px;
+   right:630px;
+}
+
+.resultImageComputer
+{
+    position:fixed;
+   bottom: 356px;
+   right:450px;
+}
+
+
+.choice:hover
+{
+    background: #e25;
+    cursor: pointer;
+   
+}

@@ -1,0 +1,26 @@
+.btnRps
+{
+    margin-top: 24%;
+    margin-right: 5%;
+}
+.cont
+{
+    width: 30%;
+
+    
+}
+.rockpaperscissors
+{
+    display: inline;
+    height: 18%;
+    width: 18%;
+    position:absolute;
+    
+}
+.rps
+{
+    display: inline;
+    margin-left: 7%;
+    margin-bottom: 10%;
+    position: absolute;
+}

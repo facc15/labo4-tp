@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   
   IrAJuegos()
   {
-    this.router.navigate(['/juegos']);
+    this.router.navigate(['/list-games']);
   }
 
   openChat()

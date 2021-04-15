@@ -19,7 +19,6 @@ import { AngularFireModule} from '@angular/fire';
 
 import { AngularFireAuthModule} from '@angular/fire/auth'; 
 import { environment } from 'src/environments/environment';
-import { JuegosComponent } from './componentes/juegos/juegos.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChatComponent } from './componentes/chat/chat.component';
@@ -37,7 +36,6 @@ import { ChatComponent } from './componentes/chat/chat.component';
     SidebarComponent,
     RegistroComponent,
     NavbarComponent,
-    JuegosComponent,
     ChatComponent
   ],
   imports: [
