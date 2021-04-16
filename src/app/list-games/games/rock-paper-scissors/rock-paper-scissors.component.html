@@ -6,17 +6,16 @@
         <h6 class="inGame text-light h1" *ngIf="inGame">
         Comenzar la batalla!!!
         </h6>
-        <h6 class="inGame h1 text-light" *ngIf="score==5">
+        <h6 class="finished h1 " *ngIf="score==5">
             GANAASTE!!!!!!!!!!!
         </h6>
-        <h6 class="inGame h1 text-light" *ngIf="scoreComputer==5">
+        <h6 class="finished h1 " *ngIf="scoreComputer==5">
             PERDISTE :(
         </h6>
-
-    <div class="score text-light h2" style="margin-top: 10%;">
+    <div class="score text-light h2">
         {{this.score}} - {{this.scoreComputer}}
     </div>
-
+<div class="greenNav"></div>
     <div class="options" *ngIf="inGame ; else finish">
 
         <div class="choice"  (click)="toPlay('rock')" id="rock" >
