@@ -15,9 +15,9 @@
     <div class="score text-light h2">
         {{this.score}} - {{this.scoreComputer}}
     </div>
-<div class="greenNav"></div>
-    <div class="options" *ngIf="inGame ; else finish">
 
+    <div class="options" *ngIf="inGame ; else finish">
+        <div class="greenNav"></div>
         <div class="choice"  (click)="toPlay('rock')" id="rock" >
         <img class="rock" src="../../../../assets/images/r.png" alt="">
         </div>

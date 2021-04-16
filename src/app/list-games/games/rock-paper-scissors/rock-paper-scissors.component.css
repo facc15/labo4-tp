@@ -46,14 +46,16 @@
 }
 .greenNav
 {
-    position: relative;
+    position: absolute;
     background-color: green;
-    width: 100%;
-    height: 100%;
-    top:10px;
-    left:400px;
+    width: 101.4%;
+    height: 12%;
+    left: -0.7%;
+    bottom:393px;
+
     outline-color:white;
     outline-width: 30%;
+    z-index: -1;
     
 }  
 
