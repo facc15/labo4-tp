@@ -18,16 +18,16 @@
  
 }
 
-.resultImage
+.result
 {
-    position:absolute;
+   position:absolute;
    bottom: 358px;
    right:630px;
 }
 
-.resultImageComputer
+.resultComputer
 {
-    position:fixed;
+    position:absolute;
    bottom: 356px;
    right:450px;
 }
