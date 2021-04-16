@@ -16,7 +16,7 @@
         {{this.score}} - {{this.scoreComputer}}
     </div>
 
-    <div class="options" *ngIf="!inGame ; else finish">
+    <div class="options" *ngIf="inGame ; else finish">
         <div class="greenNav"></div>
         <div class="choice"  (click)="toPlay('rock')" id="rock" >
         <img class="rock" src="../../../../assets/images/r.png" alt="">
@@ -47,7 +47,8 @@
     </div>
 
     <ng-template #finish>
-        <div class="options">
+        <div class="options">        
+            <div class="greenNav"></div>
             <button type="button" (click)="playAgain()" class="btn btn-outline-success btn-lg btn-block" id="again">Jugar de nuevo?</button>
             <br>
             <div class="result" id="result">
