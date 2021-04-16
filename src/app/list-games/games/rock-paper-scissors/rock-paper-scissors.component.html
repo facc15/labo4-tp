@@ -18,24 +18,23 @@
 
     <div class="options" *ngIf="inGame ; else finish">
         <div class="greenNav"></div>
-        <div class="choice"  (click)="toPlay('rock')" id="rock" >
-        <img class="rock" src="../../../../assets/images/r.png" alt="">
+        <div class="choice"  (click)="toPlay('rock')">
+        <img class="rock" src="../../../../assets/images/r.png" alt="" id="rock">
         </div>
         <br>
-        <div class="choice"  (click)="toPlay('paper')" id="paper">
-        <img class="paper" src="../../../../assets/images/p.png" alt="">
+        <div class="choice"  (click)="toPlay('paper')">
+        <img class="paper" src="../../../../assets/images/p.png" alt="" id="paper">
         </div>
         <br>
-        <div class="choice" id="scissors" (click)="toPlay('scissors')">
-            <img class="scissors" src="../../../../assets/images/s.png" alt="">
+        <div class="choice" id="scissors" (click)="toPlay('scissors')" >
+            <img class="scissors" src="../../../../assets/images/s.png" alt="" id="scissors">
         </div>
 
             <div class="result" id="result">
-              <img class="resultImage" src="../../../../assets/images/s.png" alt="">
-            </div>
+                <img class="resultImage" src="{{this.result}}" alt="">
 
-            <div class="resultComputer" id="resultComputer">
-            <img class="resultImageComputer" src="../../../../assets/images/s.png" alt="">
+                <img class="resultImageComputer" src="{{this.resultComputer}}" alt="">
+         
             </div>
 
            
@@ -51,13 +50,16 @@
             <div class="greenNav"></div>
             <button type="button" (click)="playAgain()" class="btn btn-outline-success btn-lg btn-block" id="again">Jugar de nuevo?</button>
             <br>
-            <div class="result" id="result">
-                <img class="resultImage" src="../../../../assets/images/s.png" alt="">
-              </div>
-  
-              <div class="resultComputer" id="resultComputer">
-              <img class="resultImageComputer" src="../../../../assets/images/s.png" alt="">
-              </div>
+                
+                <div class="result" id="result">
+                    <img class="resultImage" src="{{this.result}}" alt="">
+
+                    <img class="resultImageComputer" src="{{this.resultComputer}}" alt="">
+                </div>
+                
+               
+                    
+             
             <br>
             <button type="button" (click)="comeBack()" class="btn btn-outline-danger btn-lg btn-block" id="come">Regresar</button>
 

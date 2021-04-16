@@ -18,4 +18,9 @@ export class ListGamesComponent implements OnInit {
     this.router.navigate(['list-games/games/rock-paper-scissors']);  
   }
 
+  goTateti()
+  {
+    this.router.navigate(['list-games/games/tateti']);   
+  }
+
 }

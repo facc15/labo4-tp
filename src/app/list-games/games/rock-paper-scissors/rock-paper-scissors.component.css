@@ -130,6 +130,7 @@
 .rockComputer{
     position:absolute;
     right:120px;
+    top:10%;
     
 
 }
@@ -149,24 +150,37 @@
 
 .result
 {
-   position:absolute;
-
-   right: 360px;
-   top:   138px;
+   position:relative;
+   border-color: green;
+   border-width:10px;
+   border-style:double;
+    width: 30%;
+    left:34%;
+    top:25%;
+    height: 30%;
+  
 }
 
-.resultComputer
+.resultImage
+{
+    position: absolute;
+    left:1px;
+    top:10%;
+    
+}
+.resultImageComputer
 {
     position:absolute;
-    right: 250px;
-    top:138px;
-}
+    top:10%;
+    right:0px;
+ 
 
+}
 
 .choice:hover
 {
     background:black;
-    cursor: pointer;
+    cursor:grab;
    
 }
 
@@ -176,6 +190,7 @@
     top:60px;
     left:100px;
     width: 500px;
+    z-index: 1;
 }
 #come{
     position: absolute;
@@ -183,4 +198,5 @@
     top: 240px;
     right:92px;
     width: 500px;
+    z-index: 1;
 }

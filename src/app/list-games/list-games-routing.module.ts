@@ -7,7 +7,8 @@ import { ListGamesComponent } from './list-games.component';
 const routes: Routes = 
 [{ path: '', component: ListGamesComponent },
  {path:'games/rock-paper-scissors',component: RockPaperScissorsComponent},
- {path:'games/tateti',component: TatetiComponent}
+ {path:'games/tateti',component: TatetiComponent}, 
+ {path:'games',component: ListGamesComponent}
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -13,6 +13,10 @@ export class RockPaperScissorsComponent implements OnInit {
   choiceComputer:number;
   inGame:boolean=true;
   finish:boolean=true;
+  result!:any;
+  resultComputer!:any;
+  prueba!:any;
+  
 
   constructor(private router:Router) {
     this.choiceComputer=0;
@@ -25,51 +29,42 @@ export class RockPaperScissorsComponent implements OnInit {
 
   toPlay(choice:string)
   {
+    const rockImage ="../../../../assets/images/r.png";
+    const paperImage='../../../../assets/images/p.png';
+    const scissorsImage='../../../../assets/images/s.png';
     this.choiceComputer=this.getRandomInt(1,4);
 
-    if(choice=="scissors")
-    {
-      
-      (<HTMLInputElement> document.getElementById("result")).innerHTML='<img class="resultImage" src="../../../../assets/images/s.png" alt="">';
-   
-    }else if(choice=="rock")
-    {
-      (<HTMLInputElement> document.getElementById("result")).innerHTML='<img class="resultImage" src="../../../../assets/images/r.png" alt="">';
-    }else if(choice=="paper")
-    {
-      (<HTMLInputElement> document.getElementById("result")).innerHTML='<img class="resultImage" src="../../../../assets/images/p.png" alt="">';
-    }
     
+    
+
+    if(choice=="scissors")
+    this.result=scissorsImage;
+    else if(choice=="rock")
+    this.result=rockImage;
+    else if(choice=="paper")
+    this.result=paperImage;
+    
+
+
+
     if(this.choiceComputer==1)
-    {
- 
-      
-    (<HTMLInputElement> document.getElementById("resultComputer")).innerHTML='<img class="resultImageComputer" src="../../../../assets/images/r.png" alt="">';
+    this.resultComputer=rockImage;
+    else if(this.choiceComputer==2)
+    this.resultComputer=paperImage;
+    else
+    this.resultComputer=scissorsImage;
+   
 
-    }else if(this.choiceComputer==2)
-    {
-    (<HTMLInputElement> document.getElementById("resultComputer")).innerHTML='<img class="resultImageComputer" src="../../../../assets/images/p.png" alt="">';
-
-    }else
-    {
-      (<HTMLInputElement> document.getElementById("resultComputer")).innerHTML='<img class="resultImageComputer" src="../../../../assets/images/s.png" alt="">';
-
-    }
-
+   
+    
     if(choice=="rock" && this.choiceComputer==1)
-    {
       return;
-    }
 
     if(choice=="paper" && this.choiceComputer==2)
-    {
       return;
-    }
 
     if(choice=="scissors" && this.choiceComputer==3)
-    {
       return;
-    }
 
     switch (choice) {
       case "rock":
@@ -121,9 +116,10 @@ export class RockPaperScissorsComponent implements OnInit {
         break;
     }
 
-    if(this.score==5 || this.scoreComputer==5) 
+    if(this.score==5 || this.scoreComputer==5)    
       this.inGame=false;
-    
+      
+
 
   }
 

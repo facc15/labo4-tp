@@ -8,6 +8,10 @@
     border-radius: 5em;
 
 }
+.navbar
+{
+    position: relative;
+}
 .home
 {
     font-weight: 900;
@@ -48,11 +52,12 @@
     position: absolute;
     top: 1;
     left: 4%;
-    width: 3em;
+    width: 20%;
     height: 2em;
     font-size:20px; 
     border-color:brown;
     border-radius: 5em;
+
 
 }
 .titulo{
