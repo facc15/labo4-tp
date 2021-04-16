@@ -173,14 +173,14 @@
 #again{
     position: absolute;
     border: solid;
-    top:100px;
+    top:60px;
     left:100px;
     width: 500px;
 }
 #come{
     position: absolute;
     border: solid;
-    top: 200px;
+    top: 240px;
     right:92px;
     width: 500px;
 }

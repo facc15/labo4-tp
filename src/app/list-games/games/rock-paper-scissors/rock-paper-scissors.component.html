@@ -16,7 +16,7 @@
         {{this.score}} - {{this.scoreComputer}}
     </div>
 
-    <div class="options" *ngIf="inGame ; else finish">
+    <div class="options" *ngIf="!inGame ; else finish">
         <div class="greenNav"></div>
         <div class="choice"  (click)="toPlay('rock')" id="rock" >
         <img class="rock" src="../../../../assets/images/r.png" alt="">
@@ -49,7 +49,15 @@
     <ng-template #finish>
         <div class="options">
             <button type="button" (click)="playAgain()" class="btn btn-outline-success btn-lg btn-block" id="again">Jugar de nuevo?</button>
-            <br><br>
+            <br>
+            <div class="result" id="result">
+                <img class="resultImage" src="../../../../assets/images/s.png" alt="">
+              </div>
+  
+              <div class="resultComputer" id="resultComputer">
+              <img class="resultImageComputer" src="../../../../assets/images/s.png" alt="">
+              </div>
+            <br>
             <button type="button" (click)="comeBack()" class="btn btn-outline-danger btn-lg btn-block" id="come">Regresar</button>
 
         </div>
