@@ -2,40 +2,60 @@
 {
     text-align: center;
 }
+
 .options
 {
-    margin: auto;
-    display:inline-block;
-    width: 100px;
-    height: 100px;
+    background-color: white;
+    margin:0 auto;
+    width: 700px;
+    height: 400px;
 }
+
 .choice
 {
-    top:30px;
+    top: 40px;
     position:relative;
     border-width: 10px;
-    right:170px;
+    width: 20px;
+    left:100px;
  
+}
+
+.rock{
+    position:absolute;
+    
+
+}
+.scissors{
+    position:absolute;
+    top: 160px;
+
+}
+.paper{
+    position:absolute;
+    top: 80px;
+
 }
 
 .result
 {
    position:absolute;
    bottom: 358px;
-   right:630px;
+   right: 630px;
 }
 
 .resultComputer
 {
     position:absolute;
    bottom: 356px;
-   right:450px;
+   right: 500px;
+   
 }
 
 
 .choice:hover
 {
-    background: #e25;
+    background:black;
     cursor: pointer;
    
 }

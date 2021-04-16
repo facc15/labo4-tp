@@ -40,16 +40,17 @@ export class RockPaperScissorsComponent implements OnInit {
     
     if(this.choiceComputer==1)
     {
+ 
       
-    (<HTMLInputElement> document.getElementById("computerResult")).innerHTML='<img class="resultImageComputer" src="../../../../assets/images/r.png" alt="">';
+    (<HTMLInputElement> document.getElementById("resultComputer")).innerHTML='<img class="resultImageComputer" src="../../../../assets/images/r.png" alt="">';
 
     }else if(this.choiceComputer==2)
     {
-    (<HTMLInputElement> document.getElementById("computerResult")).innerHTML='<img class="resultImageComputer" src="../../../../assets/images/p.png" alt="">';
+    (<HTMLInputElement> document.getElementById("resultComputer")).innerHTML='<img class="resultImageComputer" src="../../../../assets/images/p.png" alt="">';
 
     }else
     {
-      (<HTMLInputElement> document.getElementById("computerResult")).innerHTML='<img class="resultImageComputer" src="../../../../assets/images/s.png" alt="">';
+      (<HTMLInputElement> document.getElementById("resultComputer")).innerHTML='<img class="resultImageComputer" src="../../../../assets/images/s.png" alt="">';
 
     }
 
@@ -68,49 +69,56 @@ export class RockPaperScissorsComponent implements OnInit {
       return;
     }
 
-    if(choice=="rock")
-    {
-      if(this.choiceComputer==2)
-      {
-        this.scoreComputer=this.scoreComputer+1;
-      }else if(this.choiceComputer==3)
-      {
-        this.score=this.score+1;
-      }
-    }else if(choice=="paper")
-    {
-      if(this.scoreComputer==1)
-      {
-        this.score=this.score+1;
-      }else if(this.scoreComputer==3)
-      {
-        this.scoreComputer=this.scoreComputer+1;
-      }
+    switch (choice) {
+      case "rock":
+                    switch (this.choiceComputer) {
+                      case 2:
+                            this.scoreComputer=this.scoreComputer+1;
+                        break;
+                      case 3:
+                            this.score=this.score+1;
+                        break;
+                    
+                      default:
+                        break;
+                    }
 
-    }else
-    {
-      if(this.scoreComputer==1)
-      {
-        this.scoreComputer=this.scoreComputer+1;
-      }else if(this.scoreComputer==2)
-      {
-        this.score=this.score+1;
-      }
+        break;
+      case "paper":
+                    switch (this.choiceComputer) {
+                        case 1:
+                            this.score=this.score+1;
+                        break;
+                        case 3:
+                            this.scoreComputer=this.scoreComputer+1;
+                        break;
+                    
+                        default:
+                        break;
+                    }
+
+          
+        break;
+      case "scissors":
+                      switch (this.choiceComputer) {
+                        case 1:
+                            this.scoreComputer=this.scoreComputer+1;
+                        break;
+                        case 2:
+                            this.score=this.score+1;
+                        break;
+                    
+                        default:
+                        break;
+                    }
+        
+          
+        break;
+    
+      default:
+        break;
     }
 
-    
-    
-    if(this.score==5)
-    {
-      alert("GANASTE!!!!!!!!!!!!!!!!!!!!!!!!!");
-      this.router.navigate(['/home']);
-
-    }else if(this.scoreComputer==5)
-    {
-      alert("PERDISTE !");
-      this.router.navigate(['/home']);
-    }
-    
   }
 
   getRandomInt(min:number, max:number):number {

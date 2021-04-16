@@ -3,19 +3,24 @@
     <h3 class="mt-4 h1 text-light">PIEDRA, PAPEL O TIJERA</h3>
 
 
-    <h6 class="text-light h2 mt-2">
+        <h6 class="text-light h2 mt-2">
         Comenzar !!!
         </h6>
 
-    <div class="text-light h2" style="margin-top: 10%;">
-        0 - 0
+    <div class="score text-light h2" style="margin-top: 10%;">
+        {{this.score}} - {{this.scoreComputer}}
     </div>
 
     
     
-    <div class="result">
+    <div class="final h1 text-light" *ngIf="score==5">
 
+        GANAASTE!!!!!!!!!!!
+    </div>
 
+    <div class="final h1 text-light" *ngIf="scoreComputer==5">
+
+        PERDISTE :(
     </div>
 
 
