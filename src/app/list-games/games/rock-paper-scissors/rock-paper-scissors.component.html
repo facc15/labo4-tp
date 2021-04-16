@@ -1,30 +1,23 @@
 
 <div class="container">
-    <h3 class="mt-4 h1 text-light">PIEDRA, PAPEL O TIJERA</h3>
+    <h3 class="title mt-4 h1 text-light">PIEDRA, PAPEL O TIJERA</h3>
 
 
-        <h6 class="text-light h2 mt-2">
-        Comenzar !!!
+        <h6 class="inGame text-light h1" *ngIf="inGame">
+        Comenzar la batalla!!!
+        </h6>
+        <h6 class="inGame h1 text-light" *ngIf="score==5">
+            GANAASTE!!!!!!!!!!!
+        </h6>
+        <h6 class="inGame h1 text-light" *ngIf="scoreComputer==5">
+            PERDISTE :(
         </h6>
 
     <div class="score text-light h2" style="margin-top: 10%;">
         {{this.score}} - {{this.scoreComputer}}
     </div>
 
-    
-    
-    <div class="final h1 text-light" *ngIf="score==5">
-
-        GANAASTE!!!!!!!!!!!
-    </div>
-
-    <div class="final h1 text-light" *ngIf="scoreComputer==5">
-
-        PERDISTE :(
-    </div>
-
-
-    <div class="options">
+    <div class="options" *ngIf="inGame ; else finish">
 
         <div class="choice"  (click)="toPlay('rock')" id="rock" >
         <img class="rock" src="../../../../assets/images/r.png" alt="">
@@ -35,18 +28,34 @@
         </div>
         <br>
         <div class="choice" id="scissors" (click)="toPlay('scissors')">
-        <img class="scissors" src="../../../../assets/images/s.png" alt="">
+            <img class="scissors" src="../../../../assets/images/s.png" alt="">
         </div>
 
-        <div class="result" id="result">
-            <img class="resultImage" src="../../../../assets/images/s.png" alt="">
-        </div>
+            <div class="result" id="result">
+              <img class="resultImage" src="../../../../assets/images/s.png" alt="">
+            </div>
 
-        <div class="resultComputer" id="resultComputer">
+            <div class="resultComputer" id="resultComputer">
             <img class="resultImageComputer" src="../../../../assets/images/s.png" alt="">
-        </div>
+            </div>
+
+           
+            <img class="rockComputer" src="../../../../assets/images/r.png" alt="">
+            <img class="paperComputer" src="../../../../assets/images/p.png" alt="">
+            <img class="scissorsComputer" src="../../../../assets/images/s.png" alt="">
+               
 
     </div>
+
+    <ng-template #finish>
+        <div class="options">
+            <button type="button" (click)="playAgain()" class="btn btn-outline-success btn-lg btn-block" id="again">Jugar de nuevo?</button>
+            <br><br>
+            <button type="button" (click)="comeBack()" class="btn btn-outline-danger btn-lg btn-block" id="come">Regresar</button>
+
+        </div>
+
+    </ng-template>
 
     
 </div>

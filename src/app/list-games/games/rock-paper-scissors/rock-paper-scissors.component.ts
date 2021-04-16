@@ -11,6 +11,8 @@ export class RockPaperScissorsComponent implements OnInit {
   score:number;
   scoreComputer:number;
   choiceComputer:number;
+  inGame:boolean=true;
+  finish:boolean=true;
 
   constructor(private router:Router) {
     this.choiceComputer=0;
@@ -119,10 +121,27 @@ export class RockPaperScissorsComponent implements OnInit {
         break;
     }
 
+    if(this.score==5 || this.scoreComputer==5) 
+      this.inGame=false;
+    
+
   }
 
   getRandomInt(min:number, max:number):number {
     return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  playAgain()
+  {
+    this.score=0;
+    this.scoreComputer=0;
+    this.inGame=true;
+    this.choiceComputer=0;
+  }
+
+  comeBack()
+  {
+    this.router.navigate(['/list-games']);
   }
   /*
 

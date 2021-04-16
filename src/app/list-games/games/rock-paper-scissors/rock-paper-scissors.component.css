@@ -2,14 +2,29 @@
 {
     text-align: center;
 }
+.title
+{
+    font-family: 'Merriweather Sans', sans-serif;
+}
 
+.inGame
+{
+   margin-top: 50px;
+   font-family: 'Amiri', serif;
+   
+}
 .options
 {
     background-color: white;
+    border-color: green;
+    border-style:solid;
+    
     margin:0 auto;
     width: 700px;
     height: 400px;
+    position:relative;
 }
+
 
 .choice
 {
@@ -37,19 +52,39 @@
 
 }
 
+.rockComputer{
+    position:absolute;
+    right:120px;
+    
+
+}
+.paperComputer{
+    position:absolute;
+    right: 128px;
+    top: 140px;
+
+}
+.scissorsComputer{
+    position:absolute;
+    right:140px;
+    top: 250px;
+
+}
+
+
 .result
 {
    position:absolute;
-   bottom: 358px;
-   right: 630px;
+
+   right: 360px;
+   top:   138px;
 }
 
 .resultComputer
 {
     position:absolute;
-   bottom: 356px;
-   right: 500px;
-   
+    right: 250px;
+    top:138px;
 }
 
 
@@ -58,4 +93,19 @@
     background:black;
     cursor: pointer;
    
+}
+
+#again{
+    position: absolute;
+    border: solid;
+    top:100px;
+    left:100px;
+    width: 500px;
+}
+#come{
+    position: absolute;
+    border: solid;
+    top: 200px;
+    right:92px;
+    width: 500px;
 }
