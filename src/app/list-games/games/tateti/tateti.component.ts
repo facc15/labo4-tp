@@ -224,7 +224,8 @@ export class TatetiComponent implements OnInit {
         this.computerToPlay();
         if(this.toWin("X"))
         {
-          alert("perdiste");
+          
+          this.win=false;
           this.endGame=true;
         }
       },300);
@@ -253,14 +254,9 @@ export class TatetiComponent implements OnInit {
       {
         let input=(<HTMLInputElement>document.getElementById(i.toString()+j.toString())).innerHTML;   
         
-
         if(this.matrix[i][j]=="")
         this.matrix[i][j]=input;
-
-
         console.log(i + " + " + j +" "+ " = "+ this.matrix[i][j] + "\n");
-       
-           
       } 
     }
 
@@ -269,10 +265,9 @@ export class TatetiComponent implements OnInit {
      this.endGame=true;
      return true;
    }else
-   {return false;}
-
-
-    
+   {
+     return false;
+    }
   }
 
   checkWin(matrix:string[][],value:string)
@@ -309,19 +304,11 @@ export class TatetiComponent implements OnInit {
     this.isEmpty--;
   }
 
-  playAgain()
-  {
-    this.gameConfig();
-  }
+  playAgain() { this.gameConfig(); }
 
-  comeBack()
-  {
-    this.router.navigate(['/list-games']);
-  }
+  comeBack() { this.router.navigate(['/list-games']); }
 
-  getRandomInt(min:number, max:number):number {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
+  getRandomInt(min:number, max:number):number { return Math.floor(Math.random() * (max - min)) + min; }
 
   
 }
