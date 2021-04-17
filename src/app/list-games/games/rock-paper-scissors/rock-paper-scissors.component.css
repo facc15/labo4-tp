@@ -26,6 +26,7 @@
     width: 1;
     top:10px;
     position: relative;
+    transition: 2000s;
 
 
 }
@@ -73,6 +74,7 @@
     height: 400px;
     position:relative;
 }
+
 
 
 .choice
@@ -158,21 +160,31 @@
     left:34%;
     top:25%;
     height: 30%;
+    transition: 200s;
+    transition-delay:40s;
+    transition-duration: 200s;
+   
   
 }
+
 
 .resultImage
 {
     position: absolute;
     left:1px;
     top:10%;
-    
 }
+
+
+
+
 .resultImageComputer
 {
     position:absolute;
     top:10%;
     right:0px;
+    transition: 1000s;
+    transition: 3s;
  
 
 }
@@ -180,9 +192,10 @@
 .choice:hover
 {
     background:black;
-    cursor:grab;
-   
+    cursor:grab;  
 }
+
+
 
 #again{
     position: absolute;

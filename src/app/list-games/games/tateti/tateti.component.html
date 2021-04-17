@@ -1,18 +1,29 @@
 <h1 class="text-light" style="text-align:center;">TA-TE-TI</h1>
-<section class="section">
+<section class="section"  *ngIf="!endGame else finished;">
 
 
-    <div class="row1" (click)="toPlay(0,0)" id="row0col0"></div>
-    <div class="row1"(click)="toPlay(0,1)" id="row0col1"></div>
-    <div class="row1"(click)="toPlay(0,2)" id="row0col2"></div>
+    <div class="row1" (click)="letToStart(0,0)" id="00"></div>
+    <div class="row1"(click)="letToStart(0,1)" id="01"></div>
+    <div class="row1"(click)="letToStart(0,2)" id="02"></div>
 
     
-    <div class="row1">caja 1</div>
-    <div class="row1">caja 2</div>
-    <div class="row1">caja 3</div>
+    <div class="row1" (click)="letToStart(1,0)" id="10"></div>
+    <div class="row1" (click)="letToStart(1,1)" id="11"></div>
+    <div class="row1" (click)="letToStart(1,2)" id="12"></div>
  
-    <div class="row1">caja 1</div>
-    <div class="row1">caja 2</div>
-    <div class="row1">caja 3</div>
+    <div class="row1" (click)="letToStart(2,0)" id="20"></div>
+    <div class="row1" (click)="letToStart(2,1)" id="21"></div>
+    <div class="row1" (click)="letToStart(2,2)" id="22"></div>
 </section>
+<ng-template #finished>
+    <section class="section">
+        <h2 class="result" *ngIf="win else lose;" style="color: green;">GANASTE</h2>
+        <ng-template #lose><h2 class="result" style="color: brown;">PERDISTE</h2></ng-template>
+        
+        <button type="button" (click)="playAgain()" class="btn btn-outline-success btn-lg btn-block" id="again">Jugar de nuevo?</button>
+        <button type="button" (click)="comeBack()" class="btn btn-outline-danger btn-lg btn-block" id="come">Regresar</button>
+    </section>
+
+</ng-template>
+
 

@@ -27,6 +27,17 @@ export class RockPaperScissorsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  letToStart(choice:string)
+  {
+    this.result="";
+    this.resultComputer="";
+    setTimeout(() => {
+      
+      this.toPlay(choice);
+    }, 350);
+  }
+
+
   toPlay(choice:string)
   {
     const rockImage ="../../../../assets/images/r.png";
@@ -70,10 +81,10 @@ export class RockPaperScissorsComponent implements OnInit {
       case "rock":
                     switch (this.choiceComputer) {
                       case 2:
-                            this.scoreComputer=this.scoreComputer+1;
+                            this.scoreComputer++;
                         break;
                       case 3:
-                            this.score=this.score+1;
+                            this.score++;
                         break;
                     
                       default:
@@ -84,10 +95,10 @@ export class RockPaperScissorsComponent implements OnInit {
       case "paper":
                     switch (this.choiceComputer) {
                         case 1:
-                            this.score=this.score+1;
+                            this.score++;
                         break;
                         case 3:
-                            this.scoreComputer=this.scoreComputer+1;
+                            this.scoreComputer++;
                         break;
                     
                         default:
@@ -99,10 +110,10 @@ export class RockPaperScissorsComponent implements OnInit {
       case "scissors":
                       switch (this.choiceComputer) {
                         case 1:
-                            this.scoreComputer=this.scoreComputer+1;
+                            this.scoreComputer++;
                         break;
                         case 2:
-                            this.score=this.score+1;
+                            this.score++;
                         break;
                     
                         default:

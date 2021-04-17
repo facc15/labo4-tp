@@ -14,7 +14,6 @@ export class ChatComponent implements OnInit {
   message:string="";
   element:any;
   constructor(private af : AngularFirestore, public cs: ChatService) {
-    
     this.cs.loadChats()
            .subscribe(()=>{
 
@@ -27,7 +26,7 @@ export class ChatComponent implements OnInit {
 
           
            });
-    
+           
    }
 
   ngOnInit(): void {
@@ -40,6 +39,7 @@ export class ChatComponent implements OnInit {
     {
       return;
     }
+    this.element.scrollTop=this.element.scrollHeight;
     this.cs.addMessage(this.message)
            .then( ()=>this.message="") 
            .catch (    (e)=>console.log("Error",e));

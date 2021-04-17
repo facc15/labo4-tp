@@ -18,15 +18,15 @@
 
     <div class="options" *ngIf="inGame ; else finish">
         <div class="greenNav"></div>
-        <div class="choice"  (click)="toPlay('rock')">
+        <div class="choice"  (click)="letToStart('rock')">
         <img class="rock" src="../../../../assets/images/r.png" alt="" id="rock">
         </div>
         <br>
-        <div class="choice"  (click)="toPlay('paper')">
+        <div class="choice"  (click)="letToStart('paper')">
         <img class="paper" src="../../../../assets/images/p.png" alt="" id="paper">
         </div>
         <br>
-        <div class="choice" id="scissors" (click)="toPlay('scissors')" >
+        <div class="choice" id="scissors" (click)="letToStart('scissors')" >
             <img class="scissors" src="../../../../assets/images/s.png" alt="" id="scissors">
         </div>
 
