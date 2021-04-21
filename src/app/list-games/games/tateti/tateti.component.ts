@@ -17,6 +17,7 @@ export class TatetiComponent implements OnInit {
   endGame!:boolean;
   win!:boolean;
   draw!:boolean;
+  lose!:boolean;
 
   constructor(private router:Router) 
   {
@@ -39,6 +40,9 @@ export class TatetiComponent implements OnInit {
     this.places.push([true,true,true]);
     this.isEmpty=9;
     this.endGame=false;
+    this.win=false;
+    this.lose=false;
+    this.draw=false;
 
   }
 
@@ -209,50 +213,79 @@ export class TatetiComponent implements OnInit {
         break;
     }
 
-    this.isEmpty--;
+      this.isEmpty--;
 
-    if(this.toWin("O"))
-    {
-      this.win=true;
-      this.endGame=true;
-    }
-
-    if(this.isEmpty>0)
-    {
       setTimeout(() => {
-      
-        this.computerToPlay();
-        if(this.toWin("X"))
+
+
+        if(this.isEmpty>0)
+    {
+     
+
+        if(this.toWin("O"))
         {
+              
+              this.win=true;
+              this.endGame=true;
           
-          this.win=false;
-          this.endGame=true;
+  
         }
-      },300);
+      
+
+      if(!this.endGame)
+      {
+        setTimeout(() => {
+      
+          this.computerToPlay();      
+            setTimeout(() => {
+  
+              if(this.toWin("X"))
+              {
+                this.lose=true;
+                this.endGame=true;
+  
+              }
+            }, 400);
+          
+        },380);
+        
+      }
+      
      
      
     }else
     {
       if(!this.toWin("O"))
-      {
-        this.draw=true;
-      }
-
+      this.draw=true;
+      else
+      this.win=true;
+      
+ 
       this.endGame=true;
+        
+      
     }
 
+
+
+
+
+
+        
+      },350);
+    
     
   }
 
   toWin(value:string)
   {
 
-    for (let i = 0; i < 3; i++) 
+    for (let i = 0; i <=2; i++) 
     {
 
-      for (let j = 0; j < 3; j++) 
+      for (let j = 0; j <=2; j++) 
       {
-        let input=(<HTMLInputElement>document.getElementById(i.toString()+j.toString())).innerHTML;   
+        let input=(<HTMLElement>document.getElementById(i.toString()+j.toString())).innerHTML;   
         
         if(this.matrix[i][j]=="")
         this.matrix[i][j]=input;
@@ -260,14 +293,7 @@ export class TatetiComponent implements OnInit {
       } 
     }
 
-   if(this.checkWin(this.matrix,value))
-   {
-     this.endGame=true;
-     return true;
-   }else
-   {
-     return false;
-    }
+     return this.checkWin(this.matrix,value);
   }
 
   checkWin(matrix:string[][],value:string)
