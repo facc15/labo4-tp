@@ -1,0 +1,16 @@
+.about{
+    position: absolute;
+    bottom: 50%;
+    left:45%;
+    width: 30%;
+}
+.boton
+{
+    position: absolute;
+    bottom:20%;
+    left:35%;
+}
+.title
+{
+    text-align: center;
+}
